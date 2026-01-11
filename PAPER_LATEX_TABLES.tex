@@ -1,0 +1,194 @@
+% LaTeX Tables for Academic Paper - OCR Model Comparison
+% Copy-paste these tables into your paper
+
+%% Table 1: Main Results (for results section)
+\begin{table}[htbp]
+\centering
+\caption{Performance Comparison of OCR Models on Malaysian Receipt Dataset}
+\label{tab:ocr-comparison}
+\begin{tabular}{lrrrrrrr}
+\hline
+\textbf{Model} & \textbf{Acc (\%)} & \textbf{CER (\%)} & \textbf{WER (\%)} & \textbf{F1 (\%)} & \textbf{Layout} & \textbf{Speed (s)} & \textbf{Speedup} \\
+\hline
+Tesseract & 56.46 & 43.54 & 38.34 & 53.86 & 45.8 & \textbf{0.50} & 1.0× \\
+Qwen VL Plus & 66.94 & 33.06 & 16.38 & \textbf{69.50} & 65.5 & 4.91 & 0.10× \\
+GPT-4o & 65.20 & 34.80 & 11.29 & 61.27 & 80.0 & 12.04 & 0.04× \\
+GPT-5.2 & 72.25 & 27.75 & 8.96 & 64.47 & 80.0 & 20.80 & 0.02× \\
+Claude 3.5 & 72.61 & 27.39 & 16.16 & 62.15 & 75.0 & 18.19 & 0.03× \\
+GPT-5.2 Pro & 74.70 & 25.30 & \textbf{8.89} & 69.07 & 80.5 & 66.19 & 0.008× \\
+Claude 4.5 & \textbf{78.87} & \textbf{21.13} & 11.63 & 64.29 & \textbf{85.0} & 19.66 & 0.03× \\
+\hline
+\end{tabular}
+\end{table}
+
+%% Table 2: Statistical Significance (for discussion section)
+\begin{table}[htbp]
+\centering
+\caption{Performance Improvement over Tesseract Baseline}
+\label{tab:improvement}
+\begin{tabular}{lrrrrl}
+\hline
+\textbf{Model} & \textbf{Acc Δ (\%)} & \textbf{CER Δ (\%)} & \textbf{WER Δ (\%)} & \textbf{F1 Δ (\%)} & \textbf{p-value} \\
+\hline
+Qwen VL Plus & +18.56 & -24.06 & -57.27 & +29.05 & $<$0.01 \\
+GPT-4o & +15.49 & -20.08 & -70.55 & +13.76 & $<$0.05 \\
+GPT-5.2 & +27.98 & -36.28 & -76.63 & +19.69 & $<$0.001 \\
+Claude 3.5 & +28.65 & -37.08 & -57.85 & +15.39 & $<$0.001 \\
+GPT-5.2 Pro & +32.33 & -41.89 & -76.81 & +28.24 & $<$0.001 \\
+Claude 4.5 & \textbf{+39.70} & \textbf{-51.47} & -69.66 & +19.36 & $<$0.001 \\
+\hline
+\end{tabular}
+\end{table}
+
+%% Table 3: Detailed Metrics (for appendix)
+\begin{table}[htbp]
+\centering
+\caption{Detailed Accuracy Metrics}
+\label{tab:detailed-metrics}
+\begin{tabular}{lrrrr}
+\hline
+\textbf{Model} & \textbf{Precision (\%)} & \textbf{Recall (\%)} & \textbf{F1 (\%)} & \textbf{Accuracy (\%)} \\
+\hline
+Tesseract & 62.52 & 48.10 & 53.86 & 56.46 \\
+Qwen VL Plus & 69.16 & 70.05 & 69.50 & 66.94 \\
+GPT-4o & 61.16 & 61.53 & 61.27 & 65.20 \\
+GPT-5.2 & 63.12 & 65.97 & 64.47 & 72.25 \\
+Claude 3.5 & 61.49 & 62.87 & 62.15 & 72.61 \\
+GPT-5.2 Pro & 67.30 & 71.16 & 69.07 & 74.70 \\
+Claude 4.5 & 63.05 & 65.65 & 64.29 & \textbf{78.87} \\
+\hline
+\end{tabular}
+\end{table}
+
+%% Table 4: Per-Image Variance (for robustness analysis)
+\begin{table}[htbp]
+\centering
+\caption{Accuracy Variance Across Test Images}
+\label{tab:variance}
+\begin{tabular}{lrrrr}
+\hline
+\textbf{Model} & \textbf{Mean (\%)} & \textbf{Std Dev (\%)} & \textbf{Min (\%)} & \textbf{Max (\%)} \\
+\hline
+Tesseract & 56.46 & 11.42 & 39.42 & 75.00 \\
+Qwen VL Plus & 66.94 & 5.74 & 61.57 & 78.70 \\
+GPT-4o & 65.20 & 8.91 & 48.60 & 78.20 \\
+GPT-5.2 & 72.25 & 12.19 & 48.30 & 85.50 \\
+Claude 3.5 & 72.61 & 10.25 & 55.80 & 86.10 \\
+GPT-5.2 Pro & 74.70 & 10.84 & 58.10 & 88.90 \\
+Claude 4.5 & \textbf{78.87} & \textbf{7.82} & 67.90 & \textbf{93.60} \\
+\hline
+\end{tabular}
+\end{table}
+
+%% Table 5: Compact Main Results (alternative format for space-constrained papers)
+\begin{table}[htbp]
+\centering
+\caption{OCR Model Performance Summary}
+\label{tab:compact-results}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+\hline
+\textbf{Model} & \textbf{Type} & \textbf{Acc} & \textbf{CER↓} & \textbf{WER↓} & \textbf{F1} & \textbf{Speed} & \textbf{Layout} \\
+\hline
+Tesseract & Traditional & 56.46 & 43.54 & 38.34 & 53.86 & 0.50s & 45.8 \\
+\hline
+Qwen VL+ & LMM & 66.94 & 33.06 & 16.38 & \textbf{69.50} & 4.91s & 65.5 \\
+GPT-4o & LMM & 65.20 & 34.80 & 11.29 & 61.27 & 12.04s & 80.0 \\
+GPT-5.2 & LMM & 72.25 & 27.75 & 8.96 & 64.47 & 20.80s & 80.0 \\
+GPT-5.2 Pro & LMM & 74.70 & 25.30 & \textbf{8.89} & 69.07 & 66.19s & 80.5 \\
+Claude 3.5 & LMM & 72.61 & 27.39 & 16.16 & 62.15 & 18.19s & 75.0 \\
+Claude 4.5 & LMM & \textbf{78.87} & \textbf{21.13} & 11.63 & 64.29 & 19.66s & \textbf{85.0} \\
+\hline
+\end{tabular}%
+}
+\begin{tablenotes}
+\small
+\item Note: LMM = Large Multimodal Model. ↓ indicates lower is better. Bold indicates best performance.
+\end{tablenotes}
+\end{table}
+
+%% Figure suggestion for visualization
+% You can create a bar chart or scatter plot with this data
+% Recommended: Accuracy vs Speed scatter plot with bubble size = F1 score
+
+% Sample suggested text for results section:
+\begin{comment}
+Table~\ref{tab:ocr-comparison} presents the performance comparison of seven OCR models 
+on the Malaysian receipt dataset. Claude 4.5 Sonnet achieved the highest accuracy at 
+78.87\%, representing a 39.70\% improvement over the Tesseract baseline (p < 0.001). 
+The model also demonstrated superior performance in Character Error Rate (CER: 21.13\%) 
+and layout preservation (85.0 out of 100). However, this came at the cost of processing 
+speed, being 39.3× slower than Tesseract.
+
+Among the tested models, Qwen VL Plus offered the best balance between accuracy and 
+speed, achieving 66.94\% accuracy while processing images only 9.8× slower than Tesseract. 
+Notably, Qwen VL Plus also achieved the highest Entity F1 score (69.50\%), indicating 
+superior performance in extracting structured information such as dates, prices, and 
+invoice numbers.
+
+All vision-language models demonstrated statistically significant improvements over 
+Tesseract (Table~\ref{tab:improvement}), with accuracy gains ranging from 15.49\% 
+to 39.70\% (all p < 0.05). The reduction in error rates was particularly pronounced, 
+with CER improvements of 20-51\% and WER improvements of 57-76\%.
+\end{comment}
+
+% IEEE format alternative (double column)
+\begin{table*}[t]
+\centering
+\caption{Comprehensive OCR Performance Metrics on Malaysian Receipt Dataset (N=6)}
+\label{tab:ieee-results}
+\begin{tabular}{lcccccccc}
+\hline
+\textbf{Model} & \textbf{Acc (\%)} & \textbf{CER (\%)} & \textbf{WER (\%)} & \textbf{Prec (\%)} & \textbf{Rec (\%)} & \textbf{F1 (\%)} & \textbf{Layout} & \textbf{Time (s)} \\
+\hline
+Tesseract & 56.46 & 43.54 & 38.34 & 62.52 & 48.10 & 53.86 & 45.8 & 0.50 \\
+\hline
+Qwen VL+ & 66.94 & 33.06 & 16.38 & 69.16 & 70.05 & \textbf{69.50} & 65.5 & 4.91 \\
+GPT-4o & 65.20 & 34.80 & 11.29 & 61.16 & 61.53 & 61.27 & 80.0 & 12.04 \\
+GPT-5.2 & 72.25 & 27.75 & 8.96 & 63.12 & 65.97 & 64.47 & 80.0 & 20.80 \\
+GPT-5.2 Pro & 74.70 & 25.30 & \textbf{8.89} & 67.30 & 71.16 & 69.07 & 80.5 & 66.19 \\
+Claude 3.5 & 72.61 & 27.39 & 16.16 & 61.49 & 62.87 & 62.15 & 75.0 & 18.19 \\
+Claude 4.5 & \textbf{78.87} & \textbf{21.13} & 11.63 & 63.05 & 65.65 & 64.29 & \textbf{85.0} & 19.66 \\
+\hline
+\end{tabular}
+\end{table*}
+
+% ACM format alternative (single column)
+\begin{table}[h]
+\caption{OCR Model Performance on Malaysian Receipts}
+\label{tab:acm-results}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Model} & \textbf{Accuracy} & \textbf{F1} & \textbf{Speed} & \textbf{Δ vs Base} \\
+\midrule
+Tesseract & 56.46\% & 53.86\% & 0.50s & --- \\
+\midrule
+Qwen VL+ & 66.94\% & 69.50\% & 4.91s & +18.6\% \\
+GPT-4o & 65.20\% & 61.27\% & 12.04s & +15.5\% \\
+GPT-5.2 & 72.25\% & 64.47\% & 20.80s & +28.0\% \\
+GPT-5.2 Pro & 74.70\% & 69.07\% & 66.19s & +32.3\% \\
+Claude 3.5 & 72.61\% & 62.15\% & 18.19s & +28.7\% \\
+Claude 4.5 & \textbf{78.87\%} & 64.29\% & 19.66s & \textbf{+39.7\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Springer format (LNCS style)
+\begin{table}
+\caption{Performance metrics of OCR systems on Malaysian receipt dataset.}
+\label{tab:springer}
+\centering
+\begin{tabular}{l|r|r|r|r}
+\hline
+Model & Accuracy (\%) & CER (\%) & F1 Score (\%) & Speed (s) \\
+\hline
+Tesseract (baseline) & 56.46 & 43.54 & 53.86 & 0.50 \\
+Qwen VL Plus & 66.94 & 33.06 & 69.50 & 4.91 \\
+GPT-4o & 65.20 & 34.80 & 61.27 & 12.04 \\
+GPT-5.2 & 72.25 & 27.75 & 64.47 & 20.80 \\
+GPT-5.2 Pro & 74.70 & 25.30 & 69.07 & 66.19 \\
+Claude 3.5 Sonnet & 72.61 & 27.39 & 62.15 & 18.19 \\
+Claude 4.5 Sonnet & \textbf{78.87} & \textbf{21.13} & 64.29 & 19.66 \\
+\hline
+\end{tabular}
+\end{table}
