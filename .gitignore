@@ -27,9 +27,8 @@ Thumbs.db
 blockchain_credentials.json
 
 # Output files
-demo*.md
-*_results.md
-verification_results.md
+
+ 
 
 # Test outputs
 *.log
